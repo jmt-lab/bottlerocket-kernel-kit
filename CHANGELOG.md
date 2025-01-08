@@ -1,3 +1,13 @@
+# v1.0.4 (2025-01-16)
+
+## OS Changes
+* Update neruon dkms for kernel-5.10, kernel-5.15 and kernel-6.1 ([#16], ([#17]))
+* Update to drivers for kmod-5.10-nvidia, kmod-5.15-nvidia and kmod-6.1-nvidia ([#21])
+
+[#16]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/16
+[#17]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/17
+[#21]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/21
+
 # v1.0.2 (2024-12-20)
 
 ## Build Changes
