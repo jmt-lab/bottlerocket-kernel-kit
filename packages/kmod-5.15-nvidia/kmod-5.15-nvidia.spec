@@ -1,6 +1,6 @@
 %global tesla_major 535
-%global tesla_minor 216
-%global tesla_patch 01
+%global tesla_minor 230
+%global tesla_patch 02
 %global tesla_ver %{tesla_major}.%{tesla_minor}.%{tesla_patch}
 %if "%{?_cross_arch}" == "aarch64"
 %global fm_arch sbsa
@@ -56,6 +56,8 @@ Source307: load-tesla-kernel-modules.service.in
 Source308: copy-open-gpu-kernel-modules.service.in
 Source309: load-open-gpu-kernel-modules.service.in
 
+Patch001: 0001-makefile-allow-to-use-any-kernel-arch.patch
+
 BuildRequires: %{_cross_os}kernel-5.15-archive
 
 %description
@@ -94,6 +96,10 @@ Requires: %{name}-open-gpu-%{tesla_major}
 # Extract nvidia sources with `-x`, otherwise the script will try to install
 # the driver in the current run
 sh %{_sourcedir}/NVIDIA-Linux-%{_cross_arch}-%{tesla_ver}.run -x
+# Move to the sources directory and apply patch
+pushd NVIDIA-Linux-%{_cross_arch}-%{tesla_ver}
+%patch 1 -p1
+popd
 
 # Extract fabricmanager from the rpm via cpio rather than `%%setup` since the
 # correct source is architecture-dependent.
