@@ -1,0 +1,27 @@
+[advisory]
+id = "BRSA-6jzsr8lqncrq"
+title = "kmod-nvidia CVE‑2024‑0150"
+cve = "CVE‑2024‑0150"
+severity = "high"
+description = "A flaw was found in NVIDIA GPU software where data is written past the end or before the beginning of a buffer."
+
+[[advisory.products]]
+package-name = "kmod-5.10-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[[advisory.products]]
+package-name = "kmod-5.15-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[[advisory.products]]
+package-name = "kmod-6.1-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[updateinfo]
+author = "giinglis"
+issue-date = 2025-01-16T21:50:12Z
+arches = ["x86_64", "aarch64"]
+version = "1.0.4"
