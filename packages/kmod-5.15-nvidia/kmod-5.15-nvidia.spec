@@ -16,7 +16,7 @@
 %global __strip /usr/bin/true
 
 Name: %{_cross_os}kmod-5.15-nvidia
-Version: 1.0.0
+Version: %{tesla_ver}
 Release: 1%{?dist}
 Epoch: 1
 Summary: NVIDIA drivers for the 5.15 kernel
