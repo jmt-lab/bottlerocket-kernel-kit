@@ -1,0 +1,27 @@
+[advisory]
+id = "BRSA-4mz3mlhteng6"
+title = "kmod-nvidia CVE‑2024‑53869"
+cve = "CVE‑2024‑53869"
+severity = "moderate"
+description = "A flaw was found in NVIDIA Unified Memory driver for Linux where uninitialized memory could be leaked."
+
+[[advisory.products]]
+package-name = "kmod-5.10-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[[advisory.products]]
+package-name = "kmod-5.15-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[[advisory.products]]
+package-name = "kmod-6.1-nvidia"
+patched-version = "1.0.0"
+patched-epoch = "1"
+
+[updateinfo]
+author = "giinglis"
+issue-date = 2025-01-16T21:50:12Z
+arches = ["aarch64", "x86_64"]
+version = "1.0.4"
