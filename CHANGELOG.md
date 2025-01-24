@@ -1,3 +1,14 @@
+# v1.0.5 (2025-01-24)
+
+## OS Changes
+ * Use the version of the driver for `kmod-*-nvidia` packages. ([#22])
+
+## Build Changes
+ * Updates the Bottlerocket SDK to v0.50.1. ([#18])
+
+[#18]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/18
+[#22]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/22 
+
 # v1.0.4 (2025-01-16)
 
 ## OS Changes
