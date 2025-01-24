@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 
 Name: %{_cross_os}kernel-6.1
-Version: 6.1.119
+Version: 6.1.124
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/al2023/blobstore/c5625ba4f37a38809773fa50b769735602f1e4e50d60cb7127ed6231d0695e95/kernel-6.1.119-129.201.amzn2023.src.rpm
+Source0: https://cdn.amazonlinux.com/al2023/blobstore/ca7d1dca05ffe41b3ebcd7e15b4f380d255243c828ba559b79ba71a408d092d6/kernel-6.1.124-134.200.amzn2023.src.rpm
 Source1: gpgkey-B21C50FA44A99720EAA72F7FE951904AD832C631.asc
 # Use latest-neuron-srpm-url.sh to get this.
 Source2: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-2.19.64.0.noarch.rpm
@@ -815,6 +815,7 @@ install -p -m 0644 %{S:302} %{buildroot}%{_cross_bootconfigdir}/05-metal.conf
 %{_cross_kmoddir}/kernel/drivers/scsi/xen-scsifront.ko.*
 %endif
 %{_cross_kmoddir}/kernel/drivers/staging/lustrefsx/libcfs/libcfs/libcfs.ko.*
+%{_cross_kmoddir}/kernel/drivers/staging/lustrefsx/lnet/klnds/efalnd/kefalnd.ko.*
 %{_cross_kmoddir}/kernel/drivers/staging/lustrefsx/lnet/klnds/o2iblnd/ko2iblnd.ko.*
 %{_cross_kmoddir}/kernel/drivers/staging/lustrefsx/lnet/klnds/socklnd/ksocklnd.ko.*
 %{_cross_kmoddir}/kernel/drivers/staging/lustrefsx/lnet/lnet/lnet.ko.*
@@ -1319,6 +1320,7 @@ install -p -m 0644 %{S:302} %{buildroot}%{_cross_bootconfigdir}/05-metal.conf
 %{_cross_kmoddir}/kernel/net/netfilter/xt_TPROXY.ko.*
 %{_cross_kmoddir}/kernel/net/netfilter/xt_TRACE.ko.*
 %{_cross_kmoddir}/kernel/net/netfilter/xt_u32.ko.*
+%{_cross_kmoddir}/kernel/net/netlink/netlink_diag.ko.*
 %{_cross_kmoddir}/kernel/net/nsh/nsh.ko.*
 %{_cross_kmoddir}/kernel/net/openvswitch/openvswitch.ko.*
 %{_cross_kmoddir}/kernel/net/openvswitch/vport-geneve.ko.*
