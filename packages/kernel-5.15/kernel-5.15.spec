@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 
 Name: %{_cross_os}kernel-5.15
-Version: 5.15.173
+Version: 5.15.176
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/blobstore/35e2e2432267615ca5cbe519eb781747524fdbb903d8c4dd0e231d38561a21be/kernel-5.15.173-118.169.amzn2.src.rpm
+Source0: https://cdn.amazonlinux.com/blobstore/b8b0dded099c6da354fa22b0ced54ff3aa00112e7f76e84e169ca50489519758/kernel-5.15.176-118.170.amzn2.src.rpm
 Source1: gpgkey-99E617FE5DB527C0D8BD5F8E11CF1F95C87F5B1A.asc
 # Use latest-neuron-srpm-url.sh to get this.
 Source2: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-2.19.64.0.noarch.rpm
