@@ -1,0 +1,27 @@
+[advisory]
+id = "BRSA-j2ezr5hfrkna"
+title = "kernel CVE-2024-50121"
+cve = "CVE-2024-50121"
+severity = "high"
+description = "In the Linux kernel, the following vulnerability has been resolved: nfsd: cancel nfsd_shrinker_work using sync mode in nfs4_state_shutdown_net"
+
+[[advisory.products]]
+package-name = "kernel-5.10"
+patched-version = "5.10.233"
+patched-epoch = "0"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.176"
+patched-epoch = "0"
+
+[[advisory.products]]
+package-name = "kernel-6.1"
+patched-version = "6.1.124"
+patched-epoch = "0"
+
+[updateinfo]
+author = "ceradev"
+issue-date = 2025-01-25T00:00:23Z
+arches = ["aarch64", "x86_64"]
+version = "1.0.6"

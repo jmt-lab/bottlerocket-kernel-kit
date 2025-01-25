@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-sobubucso2f0"
+title = "kernel CVE-2024-27407"
+cve = "CVE-2024-27407"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: fs/ntfs3: Fixed overflow check in mi_enum_attr()"
+
+[[advisory.products]]
+package-name = "kernel-6.1"
+patched-version = "6.1.124"
+patched-epoch = "0"
+
+[updateinfo]
+author = "ceradev"
+issue-date = 2025-01-25T00:00:23Z
+arches = ["aarch64", "x86_64"]
+version = "1.0.6"
