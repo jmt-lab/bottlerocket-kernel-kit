@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-5mkvmc9uo73q"
+title = "kernel CVE-2024-50258"
+cve = "CVE-2024-50258"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: net: fix crash when config small gso_max_size/gso_ipv4_max_size"
+
+[[advisory.products]]
+package-name = "kernel-6.1"
+patched-version = "6.1.124"
+patched-epoch = "0"
+
+[updateinfo]
+author = "ceradev"
+issue-date = 2025-01-25T00:00:23Z
+arches = ["x86_64", "aarch64"]
+version = "1.0.6"

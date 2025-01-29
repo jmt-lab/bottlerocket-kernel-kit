@@ -1,0 +1,22 @@
+[advisory]
+id = "BRSA-go81hdaecudw"
+title = "kernel CVE-2024-49974"
+cve = "CVE-2024-49974"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: NFSD: Limit the number of concurrent async COPY operations"
+
+[[advisory.products]]
+package-name = "kernel-5.10"
+patched-version = "5.10.233"
+patched-epoch = "0"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.176"
+patched-epoch = "0"
+
+[updateinfo]
+author = "ceradev"
+issue-date = 2025-01-25T00:00:23Z
+arches = ["x86_64", "aarch64"]
+version = "1.0.6"
