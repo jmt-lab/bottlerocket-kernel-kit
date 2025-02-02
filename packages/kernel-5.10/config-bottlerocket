@@ -58,6 +58,13 @@ CONFIG_SECURITY_LOCKDOWN_LSM=y
 # kernel command line, it can be enforced.
 CONFIG_SECURITY_LOCKDOWN_LSM_EARLY=y
 
+# Use SHA-512 for module signing.
+# CONFIG_MODULE_SIG_SHA1 is not set
+# CONFIG_MODULE_SIG_SHA224 is not set
+# CONFIG_MODULE_SIG_SHA256 is not set
+# CONFIG_MODULE_SIG_SHA384 is not set
+CONFIG_MODULE_SIG_SHA512=y
+
 # Enable zstd compression for squashfs.
 CONFIG_SQUASHFS_ZSTD=y
 
