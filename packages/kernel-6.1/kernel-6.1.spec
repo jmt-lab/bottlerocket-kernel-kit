@@ -183,7 +183,7 @@ done
 %autopatch -p1
 
 %if "%{_cross_arch}" == "x86_64"
-microcode="$(find %{_cross_libdir}/firmware -type f -path '*/*-ucode/*' -printf '%%P ')"
+microcode="$(find %{_cross_libdir}/firmware -type f -path '*/*-ucode/*' -printf '%%P\n' | sort | tr '\n' ' ')"
 cat <<EOF > ../config-microcode
 CONFIG_EXTRA_FIRMWARE="${microcode}"
 CONFIG_EXTRA_FIRMWARE_DIR="%{_cross_libdir}/firmware"
