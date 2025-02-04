@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-hyiqpdbm9eve"
+title = "kernel CVE-2024-50242"
+cve = "CVE-2024-50242"
+severity = "high"
+description = "In the Linux kernel, the following vulnerability has been resolved: fs/ntfs3: Additional check in ntfs_file_release"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.176"
+patched-epoch = "0"
+
+[updateinfo]
+author = "agarrcia"
+issue-date = 2025-02-04T18:59:20Z
+arches = ["x86_64", "aarch64"]
+version = "1.0.7"

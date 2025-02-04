@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-ycnjrulkhn9g"
+title = "kernel CVE-2024-50143"
+cve = "CVE-2024-50143"
+severity = "high"
+description = "In the Linux kernel, the following vulnerability has been resolved: udf: fix uninit-value use in udf_get_fileshortad"
+
+[[advisory.products]]
+package-name = "kernel-5.10"
+patched-version = "5.10.233"
+patched-epoch = "0"
+
+[updateinfo]
+author = "agarrcia"
+issue-date = 2025-02-04T18:59:20Z
+arches = ["x86_64", "aarch64"]
+version = "1.0.7"
