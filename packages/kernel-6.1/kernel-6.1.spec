@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 
 Name: %{_cross_os}kernel-6.1
-Version: 6.1.124
+Version: 6.1.127
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/al2023/blobstore/ca7d1dca05ffe41b3ebcd7e15b4f380d255243c828ba559b79ba71a408d092d6/kernel-6.1.124-134.200.amzn2023.src.rpm
+Source0: https://cdn.amazonlinux.com/al2023/blobstore/212bc04b7ec0b61ac8a1c362021351942740ebd04ed57143d95ef49d335ee37b/kernel-6.1.127-135.201.amzn2023.src.rpm
 Source1: gpgkey-B21C50FA44A99720EAA72F7FE951904AD832C631.asc
 # Use latest-neuron-srpm-url.sh to get this.
 Source2: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-2.19.64.0.noarch.rpm
@@ -172,12 +172,16 @@ Conflicts: %{_cross_os}image-feature(no-fips)
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar config-%{_cross_arch} "*.patch"
-tar -xof linux-%{version}.tar; rm linux-%{version}.tar
+rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar.xz config-%{_cross_arch} "*.patch" kernel.spec
+tar -xof linux-%{version}.tar.xz; rm linux-%{version}.tar.xz
+# In kernel-6.1.127-135.20.amzn2023.src.rpm, provided patches are no longer numbered.
+# Find patch ordering based on the Source0 kernel.spec file from the SRPM.
+# This regex assumes the "PatchNNN: x-x.patch" lines in the upstream spec are ordered.
+readarray -t patches < <(grep -oP "^Patch\d+: \K.*\.patch$" kernel.spec)
 %setup -TDn linux-%{version}
 # Patches from the Source0 SRPM
-for patch in ../*.patch; do
-    patch -p1 <"$patch"
+for patch in ${patches[@]}; do
+    patch -p1 <../"$patch"
 done
 # Patches listed in this spec (Patch0001...)
 %autopatch -p1
