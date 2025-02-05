@@ -59,6 +59,7 @@ Source309: load-open-gpu-kernel-modules.service.in
 Patch001: 0001-makefile-allow-to-use-any-kernel-arch.patch
 
 BuildRequires: %{_cross_os}kernel-5.10-archive
+Requires: %{_cross_os}nvidia-migmanager
 
 %description
 %{summary}.

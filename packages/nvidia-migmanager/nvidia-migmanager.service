@@ -1,0 +1,16 @@
+[Unit]
+Description=NVIDIA MIG manager service
+After=nvidia-fabricmanager.service nvidia-persistenced.service
+RefuseManualStart=true
+RefuseManualStop=true
+ConditionPathExists=/etc/nvidia-migmanager/nvidia-migmanager.toml
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nvidia-migmanager apply-mig
+RemainAfterExit=true
+StandardError=journal+console
+SyslogIdentifier=nvidia-migmanager
+
+[Install]
+WantedBy=configured.target

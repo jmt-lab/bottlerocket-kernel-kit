@@ -2,6 +2,7 @@
 Description=NVIDIA fabric manager service
 
 [Service]
+ExecCondition=/usr/bin/nvidia-migmanager is-fabric-manager-compatible
 ExecStart=/usr/libexec/nvidia/tesla/bin/nv-fabricmanager -c /etc/nvidia/fabricmanager.cfg
 Type=simple
 TimeoutSec=0
