@@ -9,6 +9,7 @@ members = [
     "packages/kmod-5.10-nvidia",
     "packages/kmod-5.15-nvidia",
     "packages/kmod-6.1-nvidia",
+    "packages/nvidia-migmanager",
     "packages/linux-firmware",
     "packages/microcode",
     "packages/libkcapi",

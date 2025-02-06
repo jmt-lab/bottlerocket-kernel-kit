@@ -16,6 +16,7 @@ dependencies = [
  "libkcapi",
  "linux-firmware",
  "microcode",
+ "nvidia-migmanager",
  "shim",
 ]
 
@@ -75,6 +76,10 @@ version = "0.1.0"
 
 [[package]]
 name = "microcode"
+version = "0.1.0"
+
+[[package]]
+name = "nvidia-migmanager"
 version = "0.1.0"
 
 [[package]]
