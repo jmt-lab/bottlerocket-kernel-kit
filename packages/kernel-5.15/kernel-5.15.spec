@@ -104,10 +104,14 @@ rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
 rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar config-%{_cross_arch} "*.patch"
 tar -xof linux-%{version}.tar; rm linux-%{version}.tar
+# Find patch ordering based on the Source0 kernel.spec file from the SRPM.
+# First, find all `PatchNNN` lines. Then, sort by the patch number (-k1.6 in sort sets the 6th char
+# in field 1 of input as the sort parameter). Finally, capture just the patch file name specified.
+readarray -t patches < <(grep -P "^Patch\d+" kernel.spec | sort -n -k1.6 | grep -oP "^Patch\d+: \K.*\.patch$" kernel.spec)
 %setup -TDn linux-%{version}
 # Patches from the Source0 SRPM
-for patch in ../*.patch; do
-    patch -p1 <"$patch"
+for patch in ${patches[@]}; do
+    patch -p1 <../"$patch"
 done
 # Patches listed in this spec (Patch0001...)
 %autopatch -p1
