@@ -1,3 +1,16 @@
+# v1.1.0 (2025-02-06)
+
+## OS Changes
+ * Update to kernel 6.1.127 ([#37])
+ * Add support for Nvidia MIG ([#35])
+
+## Build Changes
+ * Find upstream kernel patches via the upstream source's spec file ([#40])
+
+[#37]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/37
+[#40]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/40
+[#35]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/35
+
 # v1.0.7 (2025-02-04)
 
 ## OS Changes
