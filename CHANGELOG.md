@@ -1,3 +1,13 @@
+# v1.1.1 (2025-02-10)
+
+## Build Changes
+ * Fix the kernel-5.15 spec file to apply patches extracted from the SRPM ([#43])
+ * Fail kernel builds on mismatches between the applied patches and patches found in the SRPM ([#43])
+ * Update twoliter to 0.7.2 ([#36])
+
+[#36]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/36
+[#43]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/43
+
 # v1.1.0 (2025-02-06)
 
 ## OS Changes
