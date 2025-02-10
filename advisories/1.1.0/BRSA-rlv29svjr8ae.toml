@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-rlv29svjr8ae"
+title = "kernel CVE-2025-21655"
+cve = "CVE-2025-21655"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: io_uring/eventfd: ensure io_eventfd_signal() defers another RCU period"
+
+[[advisory.products]]
+package-name = "kernel-6.1"
+patched-version = "6.1.127"
+patched-epoch = "0"
+
+[updateinfo]
+author = "jweiw"
+issue-date = 2025-02-06T19:04:10Z
+arches = ["aarch64", "x86_64"]
+version = "1.1.0"
