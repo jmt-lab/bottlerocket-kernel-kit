@@ -172,7 +172,7 @@ Conflicts: %{_cross_os}image-feature(no-fips)
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar.xz config-%{_cross_arch} "*.patch" kernel.spec
+rpm2cpio %{S:0} | cpio -iu {,./}linux-%{version}.tar.xz {,./}config-%{_cross_arch} {,./}"*.patch" {,./}kernel.spec
 tar -xof linux-%{version}.tar.xz; rm linux-%{version}.tar.xz
 # Count all the patches extracted from the SRPM
 patches_count=$(find -name "*.patch" | wc -l)
