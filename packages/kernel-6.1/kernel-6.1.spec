@@ -467,7 +467,7 @@ install -p -m 0644 %{S:302} %{buildroot}%{_cross_bootconfigdir}/05-metal.conf
 %{_cross_kmoddir}/modules.builtin.alias.bin
 %{_cross_kmoddir}/modules.builtin.bin
 %{_cross_kmoddir}/modules.builtin.modinfo
-%{_cross_kmoddir}/modules.dep
+%{_cross_kmoddir}/modules.*dep
 %{_cross_kmoddir}/modules.dep.bin
 %{_cross_kmoddir}/modules.devname
 %{_cross_kmoddir}/modules.order
