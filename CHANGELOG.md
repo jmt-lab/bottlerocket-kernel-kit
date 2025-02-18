@@ -1,3 +1,10 @@
+# v1.1.2 (2025-02-18)
+
+## Build Changes
+ * Remove NVIDIA Multi-Instance GPU (MIG) and Fabric Manager Interoperability code ([#49])
+
+[#49]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/49
+
 # v1.1.1 (2025-02-10)
 
 ## Build Changes
@@ -44,7 +51,7 @@
  * Updates the Bottlerocket SDK to v0.50.1. ([#18])
 
 [#18]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/18
-[#22]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/22 
+[#22]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/22
 
 # v1.0.4 (2025-01-16)
 

@@ -68,7 +68,6 @@ struct Args {
 #[argh(subcommand)]
 enum Subcommand {
     HandleMigManager(HandleMigManagerArgs),
-    IsMigActive(IsMigActiveArgs),
     RebootIfRequired(RebootIfRequiredArgs),
 }
 
@@ -81,11 +80,6 @@ struct RebootIfRequiredArgs {}
 #[derive(FromArgs, Debug, PartialEq)]
 #[argh(subcommand, name = "apply-mig")]
 struct HandleMigManagerArgs {}
-
-/// Handles interoperability of other services with MIG
-#[derive(FromArgs, Debug, PartialEq)]
-#[argh(subcommand, name = "is-fabric-manager-compatible")]
-struct IsMigActiveArgs {}
 
 #[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "kebab-case")]
@@ -355,15 +349,21 @@ fn get_instance_gpu(gpu_info: &[MigGpu]) -> Result<NvidiaGpu> {
 fn enable_mig(mig_settings: NvidiaMigConfig, gpu_info: &[MigGpu]) -> Result<()> {
     ensure!(!gpu_info.is_empty(), error::GpuModelSnafu);
 
-    let (is_ampere_gpu_present, has_disabled_mig) =
-        gpu_info
-            .iter()
-            .fold((false, false), |(ampere, disabled), gpu| {
-                (
-                    ampere || gpu.model.is_ampere(),
-                    disabled || gpu.state.is_disabled(),
-                )
-            });
+    let (is_ampere_gpu_present, has_disabled_mig, is_mig_unsupported) = gpu_info.iter().fold(
+        (false, false, false),
+        |(ampere, disabled, unsupported), gpu| {
+            (
+                ampere || gpu.model.is_ampere(),
+                disabled || gpu.state.is_disabled(),
+                unsupported || gpu.state.is_unsupported(),
+            )
+        },
+    );
+
+    if is_mig_unsupported {
+        warn!("MIG is not supported by the available NVIDIA GPU.");
+        return Ok(());
+    }
 
     if has_disabled_mig {
         // Enable MIG for all the GPU
@@ -492,19 +492,6 @@ fn reboot_if_required() -> Result<()> {
     Ok(())
 }
 
-fn is_fabric_manager_compatible(mig_settings: NvidiaMigConfig, gpu_info: &[MigGpu]) -> Result<()> {
-    if mig_settings.device_partitioning_strategy == "mig" {
-        for gpu in gpu_info {
-            if !gpu.state.is_unsupported() {
-                warn!("MIG mode is Enabled. Disabling Fabric Manager ...");
-                process::exit(1);
-            }
-        }
-    }
-
-    Ok(())
-}
-
 fn run() -> Result<()> {
     let args: Args = argh::from_env();
 
@@ -519,7 +506,6 @@ fn run() -> Result<()> {
 
     match args.subcommand {
         Subcommand::HandleMigManager(_) => handle_mig_manager(mig_settings, &gpu_info),
-        Subcommand::IsMigActive(_) => is_fabric_manager_compatible(mig_settings, &gpu_info),
         Subcommand::RebootIfRequired(_) => reboot_if_required(),
     }
 }
@@ -686,7 +672,7 @@ mod test {
 
         let num_slices: usize = min(gpu_ram / slice_ram, 7 / compute_slices);
 
-        let profile_string = std::iter::repeat(mig_profile.as_ref())
+        let profile_string = std::iter::repeat(mig_profile)
             .take(num_slices)
             .collect::<Vec<_>>()
             .join(",");
