@@ -162,16 +162,12 @@ pushd NVIDIA-Linux-%{_cross_arch}-%{tesla_ver}/supported-gpus
 # 10de:1eb8 is T4 (G4dn)
 # 10de:1eb4 is T4G (G5g)
 # 10de:2237 is A10G (G5)
-# 10de:27b8 is L4 (G6)
-# 10de:26b9 is L40S (G6e)
 jq -r '.chips[] | select(.features[] | contains("kernelopen")) |
 select(.devid != "0x1DB1"
 and .devid != "0x1DB5"
 and .devid != "0x1DEB8"
 and .devid != "0x1EB4"
-and .devid != "0x2237"
-and .devid != "0x27B8"
-and .devid != "0x26B9")' supported-gpus.json | jq -s '{"open-gpu": .}' > open-gpu-supported-devices.json
+and .devid != "0x2237")' supported-gpus.json | jq -s '{"open-gpu": .}' > open-gpu-supported-devices.json
 # confirm "NVIDIA H100" is in the resulting file to catch shape changes
 jq -e '."open-gpu"[] | select(."devid" == "0x2330") | ."features"| index("kernelopen")' open-gpu-supported-devices.json
 popd
