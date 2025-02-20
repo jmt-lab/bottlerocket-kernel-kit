@@ -1,8 +1,10 @@
 # v1.1.2 (2025-02-18)
 
-## Build Changes
+## OS Changes
+ * Use NVIDIA open gpu drivers for L4 and L40S cards ([#48])
  * Remove NVIDIA Multi-Instance GPU (MIG) and Fabric Manager Interoperability code ([#49])
 
+[#48]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/48
 [#49]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/49
 
 # v1.1.1 (2025-02-10)
