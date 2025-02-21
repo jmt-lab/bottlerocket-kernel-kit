@@ -102,7 +102,7 @@ Summary: Header files for the Linux kernel for use by glibc
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar config-%{_cross_arch} "*.patch" kernel.spec
+rpm2cpio %{S:0} | cpio -iu {,./}linux-%{version}.tar {,./}config-%{_cross_arch} {,./}"*.patch" {,./}kernel.spec
 tar -xof linux-%{version}.tar; rm linux-%{version}.tar
 # Count all the patches extracted from the SRPM
 patches_count=$(find -name "*.patch" | wc -l)

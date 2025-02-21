@@ -40,7 +40,7 @@ Requires: %{name}
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu libkcapi-%{version}.tar.xz
+rpm2cpio %{S:0} | cpio -iu {,./}libkcapi-%{version}.tar.xz
 tar -xof libkcapi-%{version}.tar.xz; rm libkcapi-%{version}.tar.xz
 %setup -TDn libkcapi-%{version}
 

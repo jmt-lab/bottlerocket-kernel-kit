@@ -101,10 +101,10 @@ Summary: Tools for the bootloader with support for Linux and more
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu grub-%{version}.tar.xz \
-  bootstrap bootstrap.conf \
-  gitignore %{gnulib_version}.tar.gz \
-  "*.patch"
+rpm2cpio %{S:0} | cpio -iu {,./}grub-%{version}.tar.xz \
+  {,./}bootstrap {,./}bootstrap.conf \
+  {,./}gitignore {,./}%{gnulib_version}.tar.gz \
+  {,./}"*.patch"
 
 # Mimic prep from upstream spec to prepare for patching.
 tar -xof grub-%{version}.tar.xz; rm grub-%{version}.tar.xz

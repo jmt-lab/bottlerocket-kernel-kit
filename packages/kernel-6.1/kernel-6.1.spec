@@ -172,7 +172,7 @@ Conflicts: %{_cross_os}image-feature(no-fips)
 rpmkeys --import %{S:1} --dbpath "${PWD}/rpmdb"
 rpmkeys --checksig %{S:0} --dbpath "${PWD}/rpmdb"
 rm -rf "${PWD}/rpmdb"
-rpm2cpio %{S:0} | cpio -iu linux-%{version}.tar.xz config-%{_cross_arch} "*.patch" kernel.spec
+rpm2cpio %{S:0} | cpio -iu {,./}linux-%{version}.tar.xz {,./}config-%{_cross_arch} {,./}"*.patch" {,./}kernel.spec
 tar -xof linux-%{version}.tar.xz; rm linux-%{version}.tar.xz
 # Count all the patches extracted from the SRPM
 patches_count=$(find -name "*.patch" | wc -l)
@@ -467,7 +467,7 @@ install -p -m 0644 %{S:302} %{buildroot}%{_cross_bootconfigdir}/05-metal.conf
 %{_cross_kmoddir}/modules.builtin.alias.bin
 %{_cross_kmoddir}/modules.builtin.bin
 %{_cross_kmoddir}/modules.builtin.modinfo
-%{_cross_kmoddir}/modules.dep
+%{_cross_kmoddir}/modules.*dep
 %{_cross_kmoddir}/modules.dep.bin
 %{_cross_kmoddir}/modules.devname
 %{_cross_kmoddir}/modules.order
