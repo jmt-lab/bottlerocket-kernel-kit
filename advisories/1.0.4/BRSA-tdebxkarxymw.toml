@@ -1,7 +1,7 @@
 [advisory]
 id = "BRSA-tdebxkarxymw"
-title = "kmod-nvidia CVE‑2024‑0147"
-cve = "CVE‑2024‑0147"
+title = "kmod-nvidia CVE-2024-0147"
+cve = "CVE-2024-0147"
 severity = "moderate"
 description = "A flaw was found in NVIDIA GPU software referencing memory after it has been freed."
 

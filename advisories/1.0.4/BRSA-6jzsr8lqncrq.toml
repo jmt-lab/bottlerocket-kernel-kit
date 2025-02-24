@@ -1,7 +1,7 @@
 [advisory]
 id = "BRSA-6jzsr8lqncrq"
-title = "kmod-nvidia CVE‑2024‑0150"
-cve = "CVE‑2024‑0150"
+title = "kmod-nvidia CVE-2024-0150"
+cve = "CVE-2024-0150"
 severity = "high"
 description = "A flaw was found in NVIDIA GPU software where data is written past the end or before the beginning of a buffer."
 
