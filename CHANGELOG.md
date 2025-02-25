@@ -1,3 +1,11 @@
+# v1.1.4 (2025-02-25)
+
+## OS Changes
+ * Update kernel-5.10 from 5.10.233 to 5.10.234  ([#57])
+ * Update kernel-5.15 from 5.15.176 to 5.15.178  ([#57])
+
+[#57]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/57
+
 # v1.1.3 (2025-02-24)
 
 ## OS Changes
