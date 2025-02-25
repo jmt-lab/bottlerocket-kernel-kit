@@ -1,7 +1,7 @@
 [advisory]
 id = "BRSA-jd3wf9wpwu5l"
-title = "kmod-nvidia CVE‑2024‑0149"
-cve = "CVE‑2024‑0149"
+title = "kmod-nvidia CVE-2024-0149"
+cve = "CVE-2024-0149"
 severity = "low"
 description = "A flaw was found in NVIDIA GPU display driver for Linux where unauthorized files could be accessed."
 
