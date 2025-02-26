@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-ddgp75otjxny"
+title = "kernel CVE-2024-49960"
+cve = "CVE-2024-49960"
+severity = "high"
+description = "In the Linux kernel, the following vulnerability has been resolved: ext4: fix timer use-after-free on failed mount"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.178"
+patched-epoch = "0"
+
+[updateinfo]
+author = "rpkelly"
+issue-date = 2025-02-26T00:51:03Z
+arches = ["x86_64", "aarch64"]
+version = "1.1.4"

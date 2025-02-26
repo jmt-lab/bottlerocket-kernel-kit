@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-wfttuzfrmqnh"
+title = "kernel CVE-2025-21653"
+cve = "CVE-2025-21653"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: net_sched: cls_flow: validate TCA_FLOW_RSHIFT attribute"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.178"
+patched-epoch = "0"
+
+[updateinfo]
+author = "rpkelly"
+issue-date = 2025-02-26T00:51:03Z
+arches = ["x86_64", "aarch64"]
+version = "1.1.4"
