@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-zrbn8hjbhfyp"
+title = "kernel CVE-2024-50047"
+cve = "CVE-2024-50047"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: smb: client: fix UAF in async decryption"
+
+[[advisory.products]]
+package-name = "kernel-6.1"
+patched-version = "6.1.128"
+patched-epoch = "0"
+
+[updateinfo]
+author = "mharrimn"
+issue-date = 2025-02-25T18:22:32Z
+arches = ["x86_64", "aarch64"]
+version = "1.1.3"
