@@ -1,0 +1,22 @@
+[advisory]
+id = "BRSA-5qpiqmz2r4pt"
+title = "kernel CVE-2024-56672"
+cve = "CVE-2024-56672"
+severity = "high"
+description = "In the Linux kernel, the following vulnerability has been resolved: blk-cgroup: Fix UAF in blkcg_unpin_online()"
+
+[[advisory.products]]
+package-name = "kernel-5.10"
+patched-version = "5.10.234"
+patched-epoch = "0"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.178"
+patched-epoch = "0"
+
+[updateinfo]
+author = "rpkelly"
+issue-date = 2025-02-26T00:51:03Z
+arches = ["aarch64", "x86_64"]
+version = "1.1.4"

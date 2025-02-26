@@ -1,0 +1,17 @@
+[advisory]
+id = "BRSA-8qgbwwnsfixn"
+title = "kernel CVE-2024-47707"
+cve = "CVE-2024-47707"
+severity = "moderate"
+description = "In the Linux kernel, the following vulnerability has been resolved: ipv6: avoid possible NULL deref in rt6_uncached_list_flush_dev()"
+
+[[advisory.products]]
+package-name = "kernel-5.15"
+patched-version = "5.15.178"
+patched-epoch = "0"
+
+[updateinfo]
+author = "rpkelly"
+issue-date = 2025-02-26T00:51:03Z
+arches = ["x86_64", "aarch64"]
+version = "1.1.4"
