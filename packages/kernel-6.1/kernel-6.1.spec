@@ -68,6 +68,8 @@ Patch1008: 1008-ftrace-initialize-modname-and-offset-in-print_rec.patch
 Patch1009: 1009-xfrm-ah6-validate-routing-header-segments_left.patch
 # Bound tun receive headroom to prevent skb overflow
 Patch1010: 1010-net-tun-bound-receive-headroom.patch
+# Backport patch to disable LZ4 rolling decompression for EROFS
+Patch1011: 1011-erofs-disable-LZ4-rolling-decompression-for-now.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
