@@ -1,3 +1,13 @@
+# v9.2.1 (2026-09-28)
+
+## OS Changes
+
+* Populate `ld.so.cache` after the kmod-6.18 nvidia overlay service mounts the driver libraries ([#567])
+* Disable LZ4 rolling decompression on erofs ([#568])
+
+[#567]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/567
+[#568]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/568
+
 # v9.2.0 (2026-09-18)
 
 ## OS Changes
