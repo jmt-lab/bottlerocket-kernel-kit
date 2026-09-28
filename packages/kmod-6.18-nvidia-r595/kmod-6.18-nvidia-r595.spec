@@ -107,6 +107,7 @@ Source700: https://github.com/NVIDIA/gdrcopy/archive/v%{gdrcopy_ver}/gdrcopy-%{g
 # the nvidia-select-branch gate drop-ins in a dual-branch image.
 Source800: nvidia-pb-overlay-driver.service.in
 Source801: nvidia-pb-overlay-config.service.in
+Source802: nvidia-pb-ldconfig.service
 
 Patch001: 0001-makefile-allow-to-use-any-kernel-arch.patch
 
@@ -618,6 +619,7 @@ install -p -m 0644 \
   nvidia-pb-overlay-driver.service \
   nvidia-pb-overlay-config.service \
   %{buildroot}%{_cross_unitdir}
+install -p -m 0644 %{S:802} %{buildroot}%{_cross_unitdir}/nvidia-pb-ldconfig.service
 
 # Canonical overlay mountpoints. These directories are the targets the overlay
 # service mounts onto, and must exist in the image or the mount fails.
@@ -651,6 +653,7 @@ install -d %{buildroot}%{_cross_datadir}/egl
 # Overlay activation services
 %{_cross_unitdir}/nvidia-pb-overlay-driver.service
 %{_cross_unitdir}/nvidia-pb-overlay-config.service
+%{_cross_unitdir}/nvidia-pb-ldconfig.service
 
 %files tesla
 %license NVidiaEULAforAWS.pdf
