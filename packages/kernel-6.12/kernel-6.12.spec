@@ -6,13 +6,13 @@
 %global neuron_inf1_ver 2.24.13
 
 Name: %{_cross_os}kernel-%{kmajor}
-Version: 6.12.103
+Version: 6.12.110
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/al2023/blobstore/f151e9caf26554ad39ee92c002b4002b163e1a2d0267cd71a72da315fdc0af94/kernel6.12-6.12.103-127.188.amzn2023.src.rpm
+Source0: https://cdn.amazonlinux.com/al2023/blobstore/c6c88b901727e6bb8aa1b9bf8779ee2bb04af71e30b57dc83bfe5aa810266518/kernel6.12-6.12.110-135.201.amzn2023.src.rpm
 Source1: gpgkey-B21C50FA44A99720EAA72F7FE951904AD832C631.asc
 
 # Custom Bottlerocket kernel configurations.
@@ -73,14 +73,8 @@ Patch1007: 1007-strscpy-write-destination-buffer-only-once.patch
 Patch1008: 1008-Revert-selinux-fix-overlayfs-mmap-and-mprotect-acces.patch
 # Fix use-after-free in the Nitro Enclaves enclave-creation error path
 Patch1009: 1009-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
-# Initialize modname and offset in ftrace print_rec() to avoid GP fault
-Patch1010: 1010-ftrace-initialize-modname-and-offset-in-print_rec.patch
-# Validate IPv6 routing header segments_left in AH6 to avoid OOB access
-Patch1011: 1011-xfrm-ah6-validate-routing-header-segments_left.patch
-# Bound tun receive headroom to prevent skb overflow
-Patch1012: 1012-net-tun-bound-receive-headroom.patch
 # Backport patch to disable LZ4 rolling decompression on EROFS
-Patch1013: 1013-erofs-disable-LZ4-rolling-decompression-for-now.patch
+Patch1010: 1010-erofs-disable-LZ4-rolling-decompression-for-now.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
