@@ -8,13 +8,13 @@
 %global host_arch %(uname -m)
 
 Name: %{_cross_os}kernel-%{kmajor}
-Version: 6.18.48
+Version: 6.18.51
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/al2023/blobstore/8f76c454f8734354996349eec1e54079f92235fa20b3a455569af565528428ab/kernel6.18-6.18.48-107.148.amzn2023.src.rpm
+Source0: https://cdn.amazonlinux.com/al2023/blobstore/efbc735c0fd0c62409de4680a84db7d26a02b2f40a9a7c4a30037ed78b689c21/kernel6.18-6.18.51-120.162.amzn2023.src.rpm
 Source1: gpgkey-B21C50FA44A99720EAA72F7FE951904AD832C631.asc
 
 # Custom Bottlerocket kernel configurations.
@@ -80,16 +80,8 @@ Patch1004: 1004-af_unix-increase-default-max_dgram_qlen-to-512.patch
 # Select prerequisites for GPU drivers.
 Patch1005: 1005-drm-simpledrm-Select-prerequisites-for-gpu-drivers.patch
 Patch1006: 1006-Revert-selinux-fix-overlayfs-mmap-and-mprotect-acces.patch
-# Fix use-after-free in the Nitro Enclaves enclave-creation error path
-Patch1007: 1007-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
-# Initialize modname and offset in ftrace print_rec() to avoid GP fault
-Patch1008: 1008-ftrace-initialize-modname-and-offset-in-print_rec.patch
-# Validate IPv6 routing header segments_left in AH6 to avoid OOB access
-Patch1009: 1009-xfrm-ah6-validate-routing-header-segments_left.patch
-# Bound tun receive headroom to prevent skb overflow
-Patch1010: 1010-net-tun-bound-receive-headroom.patch
 # Backport patch to disable LZ4 rolling decompression on EROFS
-Patch1011: 1011-erofs-disable-LZ4-rolling-decompression-for-now.patch
+Patch1007: 1007-erofs-disable-LZ4-rolling-decompression-for-now.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
@@ -749,6 +741,7 @@ install -p -m 0644 %{S:222} %{S:224} %{buildroot}%{_cross_unitdir}
 %{_cross_kmoddir}/kernel/drivers/block/nbd.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/block/null_blk/null_blk.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/block/rbd.%{_ko}
+%{_cross_kmoddir}/kernel/drivers/block/ublk_drv.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/block/zram/zram.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/char/ipmi/ipmi_devintf.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/char/ipmi/ipmi_msghandler.%{_ko}
@@ -1058,9 +1051,6 @@ install -p -m 0644 %{S:222} %{S:224} %{buildroot}%{_cross_unitdir}
 %{_cross_kmoddir}/kernel/drivers/virt/coco/sev-guest/sev-guest.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/virt/coco/guest/tsm_report.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/virt/vboxguest/vboxguest.%{_ko}
-%endif
-%if "%{_cross_arch}" == "aarch64"
-%{_cross_kmoddir}/kernel/drivers/virt/nitro_enclaves/nitro_enclaves.%{_ko}
 %endif
 %{_cross_kmoddir}/kernel/drivers/virtio/virtio_balloon.%{_ko}
 %{_cross_kmoddir}/kernel/drivers/virtio/virtio_mmio.%{_ko}
