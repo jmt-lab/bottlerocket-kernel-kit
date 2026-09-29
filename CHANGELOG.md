@@ -1,3 +1,22 @@
+# v9.3.0 (2026-09-29)
+
+## OS Changes
+
+* Update kernel from 6.1.186-228.374 to 6.1.188-233.385 ([#571])
+* Update kernel from 6.12.103-127.188 to 6.12.110-135.201 ([#570])
+* Update kernel from 6.18.48-107.148 to 6.18.51-120.162 ([#573])
+* Add patch to initialize `args->total` for parent pointer updates in kernel-6.12 and kernel-6.18 ([#572])
+
+## Build Changes
+
+* Update the Bottlerocket SDK to `v0.80.0` ([#574])
+
+[#570]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/570
+[#571]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/571
+[#572]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/572
+[#573]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/573
+[#574]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/574
+
 # v9.2.1 (2026-09-28)
 
 ## OS Changes
