@@ -4,13 +4,13 @@
 %global neuron_inf1_ver 2.24.13
 
 Name: %{_cross_os}kernel-6.1
-Version: 6.1.186
+Version: 6.1.188
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/al2023/blobstore/621de3b4dd9da4225f916d0500cc47b92633511290bc8edf30585dfec2147a9e/kernel-6.1.186-228.374.amzn2023.src.rpm
+Source0: https://cdn.amazonlinux.com/al2023/blobstore/ac162178e73500b1f1d0b3d625fdd50c1903e8bf9490d946aaf77eb3b1d72c4f/kernel-6.1.188-233.385.amzn2023.src.rpm
 Source1: gpgkey-B21C50FA44A99720EAA72F7FE951904AD832C631.asc
 # Use latest-2.24-neuron-srpm-url.sh to get this.
 Source2: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-%{neuron_inf1_ver}.0.noarch.rpm
@@ -62,14 +62,8 @@ Patch1005: 1005-Revert-Revert-drm-fb_helper-improve-CONFIG_FB-depend.patch
 Patch1006: 1006-strscpy-write-destination-buffer-only-once.patch
 # Fix use-after-free in the Nitro Enclaves enclave-creation error path
 Patch1007: 1007-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
-# Initialize modname and offset in ftrace print_rec() to avoid GP fault
-Patch1008: 1008-ftrace-initialize-modname-and-offset-in-print_rec.patch
-# Validate IPv6 routing header segments_left in AH6 to avoid OOB access
-Patch1009: 1009-xfrm-ah6-validate-routing-header-segments_left.patch
-# Bound tun receive headroom to prevent skb overflow
-Patch1010: 1010-net-tun-bound-receive-headroom.patch
 # Backport patch to disable LZ4 rolling decompression for EROFS
-Patch1011: 1011-erofs-disable-LZ4-rolling-decompression-for-now.patch
+Patch1008: 1008-erofs-disable-LZ4-rolling-decompression-for-now.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
