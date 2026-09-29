@@ -82,6 +82,8 @@ Patch1005: 1005-drm-simpledrm-Select-prerequisites-for-gpu-drivers.patch
 Patch1006: 1006-Revert-selinux-fix-overlayfs-mmap-and-mprotect-acces.patch
 # Backport patch to disable LZ4 rolling decompression on EROFS
 Patch1007: 1007-erofs-disable-LZ4-rolling-decompression-for-now.patch
+# Reserve blocks for XFS parent pointer updates to avoid a filesystem shutdown
+Patch1008: 1008-xfs-initialise-args-total-for-parent-pointer-updates.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
