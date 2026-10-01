@@ -240,6 +240,15 @@ CONFIG_ISCSI_TARGET=m
 # Disable DAMON subsystem. We currently do not have a good use-case for DAMON.
 # CONFIG_DAMON is not set
 
+# Pin the maximum number of CMA (Contiguous Memory Allocator) areas to 20 on all
+# architectures. Upstream mm/Kconfig defaults CMA_AREAS to 20 when NUMA is set
+# (both arches have CONFIG_NUMA=y). Amazon Linux ships no CMA_AREAS value for
+# x86_64, so it resolves to that NUMA default of 20; but its aarch64 config pins
+# a stale CONFIG_CMA_AREAS=7 (a pre-v6.11 default) that olddefconfig preserves
+# instead of recomputing. Set it explicitly so aarch64 matches the modern NUMA
+# default that x86_64 already gets.
+CONFIG_CMA_AREAS=20
+
 # Disable unnecessary framebuffer/drm drivers
 # CONFIG_DRM_BOCHS is not set
 # CONFIG_SYSFB_SIMPLEFB is not set
