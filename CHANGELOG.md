@@ -1,3 +1,24 @@
+# v9.4.0 (2026-10-01)
+
+## OS Changes
+
+* Add Neuron drivers 2.x.8890.0 and 2.x.9456.0 to kernel-6.12 and kernel-6.18 ([#577])
+* Update kernel from 6.1.188-233.385 to 6.1.188-233.386 ([#578])
+* Update kernel from 6.12.110-135.201 to 6.12.110-135.202 ([#579])
+* Update CONFIG_CMA_AREAS to 20 for aarch64 in kernel-6.18 ([#580])
+* Update kernel from 6.18.51-120.162 to 6.18.51-120.163 ([#582])
+
+## Build Changes
+
+* Update Twoliter to `v0.25.1` ([#576])
+
+[#576]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/576
+[#577]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/577
+[#578]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/578
+[#579]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/579
+[#580]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/580
+[#582]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/582
+
 # v9.3.0 (2026-09-29)
 
 ## OS Changes
