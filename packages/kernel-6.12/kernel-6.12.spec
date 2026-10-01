@@ -36,18 +36,18 @@ Source210: var-lib-kernel-devel-lower.mount.drop-in.conf.in
 Source300: bootconfig-aws.conf
 Source301: bootconfig-vmware.conf
 
+Source400: gpgkey-00FA2C1079260870A76D2C285749CAD8646D9185.asc
 # Neuron driver sources (x86_64 only)
 # Use latest-2.24-neuron-srpms-url.sh to get this.
-Source400: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-%{neuron_inf1_ver}.0.noarch.rpm
+Source401: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-%{neuron_inf1_ver}.0.noarch.rpm
 # Use latest-neuron-srpm-url.sh to get this.
-Source401: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-%{neuron_ver}.0.noarch.rpm
+Source402: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-%{neuron_ver}.0.noarch.rpm
 # Neuron driver 2.x.7372.0
-Source402: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.7372.0.noarch.rpm/e82516a77ab54f1c651a1f160e3a67b1cbca8bef391d78a6c683d6fc22442c8ee17df9d3fae1392ca8cffa676bb966b7088c32e634894ba142d83bef58dd2d81/aws-neuronx-dkms-2.x.7372.0.noarch.rpm
+Source403: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.7372.0.noarch.rpm/e82516a77ab54f1c651a1f160e3a67b1cbca8bef391d78a6c683d6fc22442c8ee17df9d3fae1392ca8cffa676bb966b7088c32e634894ba142d83bef58dd2d81/aws-neuronx-dkms-2.x.7372.0.noarch.rpm
 # Neuron driver 2.x.7693.0
-Source403: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.7693.0.noarch.rpm/4411e3d28bc307bd096408f72f9c3d9e3edcadcbeab3ca409b0f94041ac1f589120353edfb1e11c45ff5a5421808297a308f18a6ac687459abe8c5e985653d3f/aws-neuronx-dkms-2.x.7693.0.noarch.rpm
+Source404: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.7693.0.noarch.rpm/4411e3d28bc307bd096408f72f9c3d9e3edcadcbeab3ca409b0f94041ac1f589120353edfb1e11c45ff5a5421808297a308f18a6ac687459abe8c5e985653d3f/aws-neuronx-dkms-2.x.7693.0.noarch.rpm
 # Neuron driver 2.x.8072.0
-Source404: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.8072.0.noarch.rpm/d96bd0fe73482684c97faae6f779bfa8a84e9b9ca09f796031d409322550fb1744a38e6c54f5fcc8c1221f051cf04f518694876ea825722f5ed7895c2e8bb22a/aws-neuronx-dkms-2.x.8072.0.noarch.rpm
-Source405: gpgkey-00FA2C1079260870A76D2C285749CAD8646D9185.asc
+Source405: https://cache.bottlerocket.aws/aws-neuronx-dkms-2.x.8072.0.noarch.rpm/d96bd0fe73482684c97faae6f779bfa8a84e9b9ca09f796031d409322550fb1744a38e6c54f5fcc8c1221f051cf04f518694876ea825722f5ed7895c2e8bb22a/aws-neuronx-dkms-2.x.8072.0.noarch.rpm
 
 # Neuron-related configuration and unit files
 Source420: neuron-tmpfiles.conf.in
@@ -260,19 +260,19 @@ cd %{_builddir}
 
 # Neuron driver preparation (x86_64 only)
 %if "%{_cross_arch}" == "x86_64"
-rpmkeys --import %{S:405} --dbpath "${PWD}/neuron-rpmdb"
-rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:400} --dbpath "${PWD}/neuron-rpmdb"
+rpmkeys --import %{S:400} --dbpath "${PWD}/neuron-rpmdb"
 rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:401} --dbpath "${PWD}/neuron-rpmdb"
 rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:402} --dbpath "${PWD}/neuron-rpmdb"
 rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:403} --dbpath "${PWD}/neuron-rpmdb"
 rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:404} --dbpath "${PWD}/neuron-rpmdb"
+rpmkeys --define "_pkgverify_flags 0x0" --checksig %{S:405} --dbpath "${PWD}/neuron-rpmdb"
 rm -rf "${PWD}/neuron-rpmdb"
 
-rpm2cpio %{S:400} | cpio -idmu './usr/src/aws-neuronx-*'
+rpm2cpio %{S:401} | cpio -idmu './usr/src/aws-neuronx-*'
 find usr/src/ -mindepth 1 -maxdepth 1 -type d -exec mv {} neuron_2_24 \;
 rm -r usr
 
-rpm2cpio %{S:401} | cpio -idmu './usr/src/aws-neuronx-*'
+rpm2cpio %{S:402} | cpio -idmu './usr/src/aws-neuronx-*'
 find usr/src/ -mindepth 1 -maxdepth 1 -type d -exec mv {} neuron_latest \;
 rm -r usr
 
@@ -280,11 +280,11 @@ rpm2cpio %{S:402} | cpio -idmu './usr/src/aws-neuronx-*'
 find usr/src/ -mindepth 1 -maxdepth 1 -type d -exec mv {} neuron_2x_7372 \;
 rm -r usr
 
-rpm2cpio %{S:403} | cpio -idmu './usr/src/aws-neuronx-*'
+rpm2cpio %{S:404} | cpio -idmu './usr/src/aws-neuronx-*'
 find usr/src/ -mindepth 1 -maxdepth 1 -type d -exec mv {} neuron_2x_7693 \;
 rm -r usr
 
-rpm2cpio %{S:404} | cpio -idmu './usr/src/aws-neuronx-*'
+rpm2cpio %{S:405} | cpio -idmu './usr/src/aws-neuronx-*'
 find usr/src/ -mindepth 1 -maxdepth 1 -type d -exec mv {} neuron_2x_8072 \;
 rm -r usr
 %endif
