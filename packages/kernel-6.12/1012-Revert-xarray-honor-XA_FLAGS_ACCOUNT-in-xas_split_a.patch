@@ -1,0 +1,29 @@
+From ad812805fea7108d9f8efc240e4810b513b46754 Mon Sep 17 00:00:00 2001
+From: Nathan Gao <zcgao@amazon.com>
+Date: Mon, 5 Oct 2026 22:47:13 +0000
+Subject: [PATCH] Revert "xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc()"
+
+This reverts commit ad812805fea7108d9f8efc240e4810b513b46754.
+
+Signed-off-by: Nathan Gao <zcgao@amazon.com>
+Signed-off-by: Shikha Vyaghra <vyaghras@amazon.com>
+---
+ lib/xarray.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/lib/xarray.c b/lib/xarray.c
+--- a/lib/xarray.c
++++ b/lib/xarray.c
+@@ -1027,9 +1027,6 @@ void xas_split_alloc(struct xa_state *xas, void *entry, unsigned int order,
+ 	if (xas->xa_shift + XA_CHUNK_SHIFT > order)
+ 		return;
+ 
+-	if (xas->xa->xa_flags & XA_FLAGS_ACCOUNT)
+-		gfp |= __GFP_ACCOUNT;
+-
+ 	do {
+ 		unsigned int i;
+ 		void *sibling = NULL;
+-- 
+2.40.0
+
