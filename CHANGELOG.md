@@ -1,3 +1,11 @@
+# v9.4.1 (2026-10-07)
+
+## OS Changes
+
+* Add patch to revert "xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc()" to Kernel 6.12 ([#584])
+
+[#584]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/584
+
 # v9.4.0 (2026-10-01)
 
 ## OS Changes

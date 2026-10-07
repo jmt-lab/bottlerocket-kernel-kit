@@ -81,6 +81,8 @@ Patch1009: 1009-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
 Patch1010: 1010-erofs-disable-LZ4-rolling-decompression-for-now.patch
 # Reserve blocks for XFS parent pointer updates to avoid a filesystem shutdown
 Patch1011: 1011-xfs-initialise-args-total-for-parent-pointer-updates.patch
+# Revert accounting change that triggers a NULL-deref panic during memcg reclaim of split xarray nodes.
+Patch1012: 1012-Revert-xarray-honor-XA_FLAGS_ACCOUNT-in-xas_split_a.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
